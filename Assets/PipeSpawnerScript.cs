@@ -7,24 +7,27 @@ public class PipeSpawnerScript : MonoBehaviour
     public float spawnRate = 2f;
     public float heightOffset = 10f;
     private float timer = 0f;
+    public BirdScript birdScript;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SpawnPipe();
+        birdScript = GameObject.FindGameObjectWithTag("Player").GetComponent<BirdScript>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (timer < spawnRate)
+        if (birdScript.birdIsAlive)
         {
-            timer += Time.deltaTime;
-        }
-        else
-        {
-            SpawnPipe();
-            timer = 0f;
+            if (timer < spawnRate)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                SpawnPipe();
+                timer = 0f;
+            }
         }
 
     }

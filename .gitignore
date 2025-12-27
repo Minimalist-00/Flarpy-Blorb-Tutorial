@@ -30,5 +30,17 @@ ProjectSettings/
 ehthumbs.db
 Thumbs.db
 
-# Keep only Assets folder
-# Everything is ignored by default, only Assets/ is tracked
+# Unity Assets - Keep only C# source files
+# Ignore everything in Assets
+Assets/**/*
+
+# But keep C# scripts only
+!Assets/**/*.cs
+
+# Build outputs
+*.app/
+*.exe
+*.apk
+*.ipa
+Build/
+Builds/
